@@ -11,7 +11,6 @@ import os
 import subprocess
 import time
 import pyautogui
-# import pytesseract
 
 
 products_info = []
@@ -75,14 +74,11 @@ def search(query):
             'status': 'Error',
             'obs': 'Error when scraping, possibly empty values'
         }
-        # print(product_info)
 
 def search_products(products):
     try:
         for product in products['Produto']:
-            # print(product)
             prod_info = search(product)
-            # print(prod_info)
             products_info.append(prod_info)
     except Exception as e:
         print(f'Erro ao procurar itens: {e}')
@@ -109,7 +105,6 @@ def login():
         user_info = get_user_info()
 
         #   Loggin in
-        print('Logging in... \n')
         pyautogui.typewrite(user_info['user'])
         pyautogui.press('tab')
         pyautogui.typewrite(user_info['pw'])
@@ -217,7 +212,7 @@ close_app()
 print('Closing connection to RM...')
 process.terminate()
 
-#   Updating status
+#   Updating status on Excel
 for index, product in enumerate(products_info):
     df['Valor'][index] = product['value']
     df['Descrição'][index] = product['description']
