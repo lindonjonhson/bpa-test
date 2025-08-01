@@ -1,5 +1,4 @@
-# bpa-test
-Automation test
+# Automation test
 
 For this script to work it is necessary to have 2 things:
  - .env file, which will contain the 'SERPAPI_API_KEY' and the application's username and password.
